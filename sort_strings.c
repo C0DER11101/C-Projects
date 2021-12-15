@@ -2,53 +2,73 @@
 #include<stdlib.h>
 #include<string.h>
 
-// THE CODE INCOMPLETE!!!
 void sort(char**, int, int (*cmp_func)(char*, char*));
 
-int sort_strings(char*, char*);
+int sort_str(char*, char*);
 
 int main(void)
 {
 	int n;
+
 	printf("enter the number of strings: ");
 	scanf("%d", &n);
 
+	getchar();
+
 	char *string[n];
 
-	int i=0;
+	printf("\n\nenter strings:\n\n");
 
-	for(; i<n; i++)
+	for(int i=0; i<n; i++)
 		string[i]=(char*)malloc(1024*sizeof(char));
 
-	printf("\n\nenter the strings.....\n\n");
-
-	for(i=0; i<n; i++)
+	for(int i=0; i<n; i++)
 		scanf("%s", string[i]);
 
-	sort(string, n, sort_strings);
 
-	printf("\n\nthese are your sorted strings.....\n\n");
+	sort(string, n, sort_str);
 
-	for(i=0; i<n; i++)
+	printf("\n\nthese are your sorted strings....\n\n");
+
+	for(int i=0; i<n; i++)
 		printf("%s\n", string[i]);
 
-	for(i=0; i<n; i++)
+
+	for(int i=0; i<n; i++)
 		free(string[i]);
+
 
 	return 0;
 
+
 }
 
-void sort(char **string, int n, int (*cmp_func)(char*a, char*b))
+
+
+void sort(char** string, int n, int (*cmp_func)(char*a, char*b))
 {
 	for(int i=0; i<n; i++)
 	{
 		for(int j=0; j<n-1; j++)
-		{
-			(*cmp_func)(string[j],string[j+1]);
-		}
+			(*cmp_func)(string[j], string[j+1]);
 	}
 }
 
 
-int 
+int sort_str(char*a, char*b)
+{
+	char *t;
+	int l1, l2;
+	t=(char*)malloc(1024*sizeof(char));
+	if(strcmp(a, b)>0)
+	{
+		strcpy(t, a);
+		strcpy(a, b);
+		strcpy(b, t);
+	}
+
+
+	free(t);
+
+	return 0;
+}
