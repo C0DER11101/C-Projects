@@ -4,10 +4,12 @@
 
 // program to sort strings based on distinct number of characters!!!
 
-// HERE ARE THE CREDITS: THANK YOU GEEKS FOR GEEKS
+// HERE ARE THE CREDITS: THANK YOU GEEKS FOR GEEKS  FOR EXPLAINING THE CONCEPT!!!
 //   https://www.geeksforgeeks.org/sort-an-array-of-strings-based-on-count-of-distinct-characters/
 
 // this program is case-sensitive, enter strings only in lowercase
+
+// THIS CODE IS WRITTEN SOLELY BY ME!!
 
 void sort(char**, int, int (*cmp_func)(char*, char*));
 
